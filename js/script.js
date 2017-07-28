@@ -1,18 +1,18 @@
 let intel = 0
 let user = 0
-document.getElementById("getCard").addEventListener("click", function(){
+const card = function(){
     let randomNum = Math.floor(Math.random() * (11 - 1 + 1)) + 1
     user += randomNum
     document.getElementById("messages").innerHTML = "you have : " + user + " points"
     console.log(user)
     countIntel()
-})
+}
 function countIntel() {
     let randomNum = Math.floor(Math.random() * (11 - 1 + 1)) + 1
     intel += randomNum
     console.log(intel)
 }
-document.getElementById("pass").addEventListener("click", function(){
+const pass = function(){
     if(intel + 1 > user){
         alert("You lose")
     }else{
@@ -20,4 +20,6 @@ document.getElementById("pass").addEventListener("click", function(){
     }
     intel = 0
     user = 0
-})
+}
+document.getElementById("pass").addEventListener("click", pass)
+document.getElementById("getCard").addEventListener("click", card)
